@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ThreeSum",
+            "request": "launch",
+            "mainClass": "ThreeSum",
+            "projectName": "neetcode-submissions-h77khkf7_af783e29"
+        },
+        {
+            "type": "java",
             "name": "GroupAnagrams",
             "request": "launch",
             "mainClass": "GroupAnagrams",
