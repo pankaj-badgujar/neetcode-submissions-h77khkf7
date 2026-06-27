@@ -1,0 +1,36 @@
+class Solution {
+    String s1, s2, s3;
+    public boolean isInterleave(String s1, String s2, String s3) {
+        if (s3.length() != s1.length() + s2.length()){
+            return false;
+        }
+        this.s1 = s1;
+        this.s2 = s2;
+        this.s3 = s3;
+
+        return dfs(0,0,0);
+    }
+
+    private boolean dfs(int i, int j, int k){
+        if (k >= s3.length()){
+            // we completed all chars of s3
+            return true;
+        }
+        
+        char c1 = i < s1.length() ? s1.charAt(i) : '#';
+        char c2 = j < s2.length() ? s2.charAt(j) : '#';
+        char c3 = s3.charAt(k);
+
+        if (c3 == c1 && c3 == c2){
+            return dfs(i + 1, j, k + 1) || dfs(i, j + 1, k + 1);
+
+        } else if (c3 == c1){
+            return dfs(i + 1, j, k + 1);
+
+        } else if (c3 == c2){
+            return dfs(i, j + 1, k + 1);
+        } else {
+            return false;
+        }
+    }
+}
